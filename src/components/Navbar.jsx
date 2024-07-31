@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <>
@@ -10,18 +10,36 @@ function Navbar() {
         />
         <ul>
           <li>
-            <Link to="/">Inicio</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+              to="/"
+            >
+              Inicio
+            </NavLink>
           </li>
           <li>
-            <Link to="/tratamientos">Tratamientos</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+              to="/tratamientos"
+            >
+              Tratamientos
+            </NavLink>
           </li>
           <li>
-            <Link to="/quiensomos">Quienes Somos</Link>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+              to="/quiensomos"
+            >
+              Quienes Somos
+            </NavLink>
           </li>
           <li>
-            <button>
-              <Link to="/contacto">Contacto</Link>
-            </button>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+              to="/contact"
+            >
+              Contacto
+            </NavLink>
           </li>
         </ul>
       </nav>

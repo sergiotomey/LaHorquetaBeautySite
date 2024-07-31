@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.slider {
+  margin: 0 20px;
+  overflow: "hidden";
+  padding: 2rem 0;
+  border-bottom: 20px;
+}
+
+.slider img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  display: block; /* Remove bottom space/gap */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Optional: add a shadow for better pop-out effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider img:hover {
+  transform: scale(1.1); /* Scale image up by 10% */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Optional: enhance shadow on hover */
+}
+
+.slider p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.react-multi-carousel-list {
+  padding: 0rem 0 2rem 0;
+}
+
+.custom-dot-list-style button {
+  border: none;
+  background: #ffc3c3;
+}
+.react-multi-carousel-dot.react-multi-carousel-dot--active button {
+  background: #ffc3c3;
+}
