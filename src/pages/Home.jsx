@@ -24,6 +24,7 @@ function Home() {
   return (
     <>
       <Navbar onScrollToAboutUs={scrollToAboutUs}></Navbar>
+      <div className="placeholder"></div>
       <section className="hero">
         <div className="hero-content">
           <h1>Descubre tu Belleza Interior:</h1>

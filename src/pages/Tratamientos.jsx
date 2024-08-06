@@ -129,6 +129,7 @@ function Tratamientos() {
   return (
     <>
       <Navbar onScrollToAboutUs={scrollToAboutUs} />
+      <div className="placeholder"></div>
       <div className="tratamientos-container">
         {tratamientosData.map((tratamiento, index) => (
           <div
