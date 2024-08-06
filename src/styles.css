@@ -20,6 +20,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   /* Optional: add a shadow for better pop-out effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .slider img:hover {
@@ -44,5 +45,5 @@
   background: #ffc3c3;
 }
 .react-multi-carousel-dot.react-multi-carousel-dot--active button {
-  background: #ffc3c3;
+  background: #fca4a1;
 }

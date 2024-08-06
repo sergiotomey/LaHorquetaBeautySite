@@ -1,18 +1,39 @@
-import { Outlet, NavLink } from "react-router-dom";
-function Navbar() {
+import { useState } from "react";
+import { Outlet, NavLink, Link } from "react-router-dom";
+
+function Navbar({ onScrollToAboutUs }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
       <nav className="navbar">
-        <img
-          className="logo"
-          src="..\public\a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png"
-          alt=""
-        />
-        <ul>
+        <Link className="logo-link" to="/">
+          <img
+            className="logo"
+            src="/a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png"
+            alt="Logo"
+          />
+        </Link>
+        <div
+          className={`menu-toggle ${isMenuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+        <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? "active-link" : "link")}
               to="/"
+              end
+              aria-current="page"
             >
               Inicio
             </NavLink>
@@ -21,22 +42,22 @@ function Navbar() {
             <NavLink
               className={({ isActive }) => (isActive ? "active-link" : "link")}
               to="/tratamientos"
+              aria-current="page"
             >
               Tratamientos
             </NavLink>
           </li>
           <li>
-            <NavLink
-              className={({ isActive }) => (isActive ? "active-link" : "link")}
-              to="/quiensomos"
-            >
+            <NavLink onClick={onScrollToAboutUs} to="/#about-us">
               Quienes Somos
             </NavLink>
           </li>
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? "active-link" : "link")}
-              to="/contact"
+              to="https://wa.me/541141765033"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Contacto
             </NavLink>

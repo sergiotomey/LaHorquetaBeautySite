@@ -6,10 +6,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #fad4cd;
+  width: 100%;
 }
 /*===================NAVBAR==============================*/
 
@@ -20,21 +22,28 @@ body {
   height: 150px;
   background-color: #faefed;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative; /* Ensure positioning for the menu toggle */
 }
 
 .logo {
-  max-width: 15%;
-  min-width: 5%;
+  min-width: 30px;
+  max-width: 200px;
+  height: auto; /* Maintain aspect ratio */
 }
+
 nav ul {
   display: flex;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  margin-right: 20px;
+  margin: 0;
   justify-content: space-evenly;
   align-self: center;
   list-style: none;
   width: 50%;
+}
+
+nav ul li {
+  display: inline-block;
 }
 
 nav ul a {
@@ -57,6 +66,7 @@ nav ul a:hover {
   max-width: 300px;
   padding: 12px 24px;
   background-color: #ffc3c3;
+  border: 1px solid #333;
   text-decoration: none;
 }
 
@@ -65,6 +75,66 @@ nav ul a:hover {
   background-color: #ffc3c3;
 }
 
+/* Hamburger Menu Styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 2000; /* Ensure it appears above other content */
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
+  align-items: center; /* Center bars horizontally */
+}
+
+.menu-toggle .bar {
+  background-color: #fca4a1;
+  height: 3px;
+  width: 40px;
+  margin: 4px 0; /* Adjust margin to center bars */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Rotation effect when the menu is open */
+.menu-toggle.active {
+  transform: rotate(-90deg); /* Rotate the entire menu-toggle element */
+}
+
+.menu-toggle.active .bar {
+  opacity: 1; /* Ensure bars are visible when rotated */
+  transform: rotate(180deg); /* Rotate the bars back to be horizontal */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #faefed; /* Consider using a CSS variable */
+    position: absolute;
+    top: 100%; /* Adjust based on navbar height */
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    margin-bottom: 10px;
+    opacity: 95%;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: flex;
+    justify-content: center;
+    margin-right: 25px;
+  }
+}
 /*===================HERO============================*/
 
 .hero {
@@ -73,6 +143,7 @@ nav ul a:hover {
   width: 100%;
   display: flex;
   font-family: "Playfair Display", serif;
+  color: #333;
   font-size: 1.5rem;
   justify-content: flex-start;
   text-align: center;
@@ -90,7 +161,7 @@ nav ul a:hover {
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
 }
 
@@ -104,7 +175,7 @@ nav ul a:hover {
   display: inline-block;
   font-family: "Roboto", sans-serif;
   font-size: 0.9em;
-  margin-top: 50px;
+  margin-top: 3rem;
   max-width: 300px;
   align-self: center;
   padding: 12px 24px;
@@ -121,8 +192,31 @@ nav ul a:hover {
 .hero-image {
   background-image: url("../public/kimia-zarifi-x4J_92kJBoY-unsplash.jpg");
   background-size: cover;
+  background-position: center;
   width: 70%;
   height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+  }
+
+  .hero-image {
+    width: 100vw;
+  }
+  .hero-content {
+    width: 100vw;
+    height: 60vh;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-top: 10px;
+  }
+  .hero .btn {
+    width: 100%;
+    margin-bottom: 25px;
+  }
 }
 
 /*===================CAROUSEL===============*/
@@ -139,70 +233,187 @@ nav ul a:hover {
   border-bottom: 20px;
 }
 
+/*============Sobre Nosotros===========================*/
+
+/* Container for the "About Us" section */
+.sobre-nosotros-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 50px;
+  border: 10px solid #fca4a1;
+  background-color: #fad4cd; /* Light background for contrast */
+  margin: 0 auto;
+  margin-top: 25px;
+  max-width: 1500px; /* Adjust as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the picture */
+.contact-picture {
+  flex: 1;
+  background-image: url("./public/pexels-shvetsa-5069423.jpg"); /* Replace with your image path */
+  background-size: cover;
+  background-position: right center;
+  height: 800px; /* Adjust height as needed */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Content container */
+.sobre-nosotros {
+  flex: 3;
+}
+
+/* Title styling */
+.sobre-title {
+  text-align: center;
+  color: white;
+  font-family: "Playfair Display", serif;
+  text-shadow: 2px 2px 2px black;
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* Description styling */
+.sobre-description {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  font-weight: 550;
+  color: #666;
+}
+
+.sobre-description b {
+  font-weight: 900;
+  font-family: "Playfair Display", serif;
+}
+
+/* Paragraph styling within description */
+.sobre-description p {
+  margin-bottom: 20px;
+}
+
+/* Highlighted text within paragraphs */
+.sobre-description b {
+  font-weight: 700;
+  color: #333; /* Dark color for emphasis */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sobre-nosotros-container {
+    flex-direction: column;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
+
+  .contact-picture {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .sobre-title {
+    font-size: 28px;
+  }
+
+  .sobre-description {
+    font-size: 14px;
+  }
+}
 /*============CONTACTO===========================*/
 
 .contact-info {
   display: flex;
-  background-color: #ffc3c3;
-  width: 100%;
-  height: 70vh;
-  margin: 0 auto;
-}
-
-.contact-picture {
-  background-image: url("../public/pexels-shvetsa-5069423.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 40%;
-  height: 70vh;
-}
-.contact-content {
-  max-width: 800px;
-  padding: 40px;
-  width: 60%;
-  text-align: center;
-}
-
-.contact-content h1 {
-  background-color: #fad4cd;
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-  border: 2px solid white;
-  margin-bottom: 10px;
-  border-radius: 20px;
-  padding: 12px 24px;
-  font-size: 2.5rem;
-  font-family: "Playfair Display", serif;
-}
-
-.social-icons {
-  display: flex;
-  background-color: #fad4cd;
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-  border: 2px solid white;
-  border-radius: 20px;
-  padding: 12px 24px;
   flex-direction: column;
-  margin-top: 20px;
-  align-items: flex-start;
+  width: 100%;
+  background-color: #ffc3c3;
 }
 
-.social-icons img {
-  width: 48px;
-  margin: 30px;
-}
-
-.social-icons-divs {
+.contact-content {
+  color: #333;
+  width: 100%;
+  height: 40vh;
+  text-align: center;
   display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.contact-card {
+  background-color: #fff;
+  background-image: url("src/assets/Firefly flowers with white background with pink accents 39722.jpg");
+  background-position: center;
+  background-size: cover;
+  align-self: flex-end;
+  border: 10px solid #fca4a1;
+  padding: 20px;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.social-icons a {
-  font-size: 1.1rem;
-  color: black;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+.logo-contact {
+  height: 80%;
+  align-self: center;
 }
 
-.social-icons a:hover {
-  font-weight: bold;
+.social-pages {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  gap: 12px;
+  width: 100%;
+}
+.social-images {
+  max-width: 40px;
+  display: flex;
+}
+
+.social-pages img:hover {
+  filter: brightness(0.7);
+}
+.social-picture-div {
+  display: flex;
+}
+
+.bottom-half {
+  background-color: #ffc3c3;
+  padding: 25px;
+}
+
+.author {
+  display: block;
+  font-family: "Roboto", serif;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .logo-contact {
+    height: 80%;
+    align-self: center;
+  }
+
+  .social-pages {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+  }
 }

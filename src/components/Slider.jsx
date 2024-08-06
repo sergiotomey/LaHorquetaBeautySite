@@ -1,6 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../styles.css";
+import { useNavigate } from "react-router-dom";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -42,11 +43,17 @@ const sliderImageUrl = [
   //Fourth image url
 
   {
-    url: "../public/pexels-kowalievska-1055691.jpg",
+    url: "../public/f.elconfidencial.com_original_c68_39c_221_c6839c22103ccff94720248b14830748.jpg",
     p: "Venta de Productos",
   },
 ];
 const Slider = () => {
+  const navigate = useNavigate(); // Get the navigate function from react-router-dom
+
+  const handleClick = () => {
+    navigate("/tratamientos"); // Navigate to the /tratamientos page
+  };
+
   return (
     <div className="parent">
       <Carousel
@@ -61,8 +68,8 @@ const Slider = () => {
       >
         {sliderImageUrl.map((imageUrl, index) => {
           return (
-            <div className="slider" key={index}>
-              <img src={imageUrl.url} alt="movie" />
+            <div className="slider" key={index} onClick={handleClick}>
+              <img src={imageUrl.url} alt="tratamiento" />
               <p>{imageUrl.p}</p>
             </div>
           );
