@@ -43,10 +43,10 @@ function Home() {
         <Slider></Slider>
       </section>
       <section className="bottom-half">
-        <section ref={aboutUsRef} className="sobre-nosotros-container">
+        <section className="sobre-nosotros-container">
           <div className="contact-picture"></div>
           <div className="sobre-nosotros">
-            <h1 id="about-us" className="sobre-title">
+            <h1 ref={aboutUsRef} id="about-us" className="sobre-title">
               Nuestra Mision
             </h1>
             <p className="sobre-description">

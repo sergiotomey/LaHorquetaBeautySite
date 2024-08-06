@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "/src/tratamientos.css";
-import { useRef } from "react";
 
 const tratamientosData = [
   {
@@ -113,12 +113,20 @@ const tratamientosData = [
 
 function Tratamientos() {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const [searchParams] = useSearchParams();
+  const treatmentRefs = useRef([]);
+  const aboutUsRef = useRef(null); // Define the ref for the About Us section
 
-  const handleExpand = (index) => {
-    setExpandedIndex(index === expandedIndex ? null : index);
-  };
-
-  const aboutUsRef = useRef(null);
+  useEffect(() => {
+    const index = parseInt(searchParams.get("expand"), 10);
+    if (!isNaN(index) && index >= 0 && index < tratamientosData.length) {
+      setExpandedIndex(index);
+      // Scroll to the treatment
+      if (treatmentRefs.current[index]) {
+        treatmentRefs.current[index].scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [searchParams]);
 
   const scrollToAboutUs = () => {
     if (aboutUsRef.current) {
@@ -137,7 +145,10 @@ function Tratamientos() {
             className={`tratamiento-item ${
               expandedIndex === index ? "expanded" : ""
             }`}
-            onClick={() => handleExpand(index)}
+            onClick={() =>
+              setExpandedIndex(index === expandedIndex ? null : index)
+            }
+            ref={(el) => (treatmentRefs.current[index] = el)} // Assign ref to each treatment
           >
             <div
               className="overlay-container"

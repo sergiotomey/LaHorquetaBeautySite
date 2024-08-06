@@ -48,10 +48,10 @@ const sliderImageUrl = [
   },
 ];
 const Slider = () => {
-  const navigate = useNavigate(); // Get the navigate function from react-router-dom
+  const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/tratamientos"); // Navigate to the /tratamientos page
+  const handleClick = (index) => {
+    navigate(`/tratamientos?expand=${index}`);
   };
 
   return (
@@ -66,16 +66,19 @@ const Slider = () => {
         partialVisible={false}
         dotListClass="custom-dot-list-style"
       >
-        {sliderImageUrl.map((imageUrl, index) => {
-          return (
-            <div className="slider" key={index} onClick={handleClick}>
-              <img src={imageUrl.url} alt="tratamiento" />
-              <p>{imageUrl.p}</p>
-            </div>
-          );
-        })}
+        {sliderImageUrl.map((imageUrl, index) => (
+          <div
+            className="slider"
+            key={index}
+            onClick={() => handleClick(index)}
+          >
+            <img src={imageUrl.url} alt={imageUrl.p} />
+            <p>{imageUrl.p}</p>
+          </div>
+        ))}
       </Carousel>
     </div>
   );
 };
+
 export default Slider;

@@ -121,7 +121,9 @@ nav ul a:hover {
   nav ul {
     display: none;
     flex-direction: column;
+    gap: 5px;
     width: 100%;
+    padding: 10px;
     background-color: #faefed; /* Consider using a CSS variable */
     position: absolute;
     top: 100%; /* Adjust based on navbar height */
