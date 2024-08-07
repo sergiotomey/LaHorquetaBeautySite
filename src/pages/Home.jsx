@@ -3,6 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import Slider from "../components/Slider";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
+
 function Home() {
   const aboutUsRef = useRef(null);
   const location = useLocation();
@@ -21,6 +22,7 @@ function Home() {
       }
     }
   }, [location]);
+
   return (
     <>
       <Navbar onScrollToAboutUs={scrollToAboutUs}></Navbar>
@@ -94,17 +96,21 @@ function Home() {
           <div className="contact-card">
             <img
               className="logo-contact"
-              src="./public/a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png"
-              alt=""
+              src="public\assets\a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png" // Corrected path for logo
+              alt="Logo"
             />
             <div className="turno">
               <div className="social-pages">
                 <div className="social-picture-div">
-                  <a href="https://wa.me/541141765033" target="_blank">
+                  <a
+                    href="https://wa.me/541141765033"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img
                       className="social-images"
-                      src="./public/social.png"
-                      alt=""
+                      src="/assets/social.png" // Corrected path for social icon
+                      alt="Social"
                     />
                   </a>
                 </div>
@@ -112,11 +118,12 @@ function Home() {
                   <a
                     href="https://www.instagram.com/la_horquetabeauty/"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <img
                       className="social-images"
-                      src="./public/icons8-instagram-48.png"
-                      alt=""
+                      src="public\assets\icons8-instagram-48.png" // Corrected path for Instagram icon
+                      alt="Instagram"
                     />
                   </a>
                 </div>
@@ -124,11 +131,12 @@ function Home() {
                   <a
                     href="https://www.facebook.com/profile.php?id=100054599373767&sk=about"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <img
                       className="social-images"
-                      src="./public/icons8-facebook-48.png"
-                      alt=""
+                      src="public\assets\icons8-facebook-48.png" // Corrected path for Facebook icon
+                      alt="Facebook"
                     />
                   </a>
                 </div>

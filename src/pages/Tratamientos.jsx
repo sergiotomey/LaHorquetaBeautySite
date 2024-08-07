@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "/src/tratamientos.css";
+import "../tratamientos.css"; // Corrected import path
 
 const tratamientosData = [
   {
-    imageUrl: "./public/pexels-shvetsa-5069454.jpg",
+    imageUrl: "/assets/pexels-shvetsa-5069454.jpg", // Updated path
     labelText: "Tratamientos Faciales",
     htmlContent: `
     <h1>Tratamientos Faciales</h1>
@@ -29,13 +29,13 @@ const tratamientosData = [
     <li>Tratamientos para el acné</li>
     <li>Hidratación Profunda</li>
     </ul>
-    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank">Reservar Turno</a></button>
+    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank" rel="noopener noreferrer">Reservar Turno</a></button>
   `,
   },
 
   {
     imageUrl:
-      "./public/Radiofrecuencia-Corporal-en-Clinica-Premium-Marbella.jpg",
+      "/assets/Radiofrecuencia-Corporal-en-Clinica-Premium-Marbella.jpg", // Updated path
     labelText: "Tratamientos Corporales",
     htmlContent: `
     <h1>Tratamientos Corporales</h1>
@@ -51,11 +51,11 @@ const tratamientosData = [
     <li>Tratamientos ortomoleculares con microneedling</li>
     <li>Tratamientos personalizados</li>
     </ul>
-    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank">Reservar Turno</a></button>
+    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank" rel="noopener noreferrer">Reservar Turno</a></button>
   `,
   },
   {
-    imageUrl: "./public/pexels-polina-tankilevitch-3738359.jpg",
+    imageUrl: "/assets/pexels-polina-tankilevitch-3738359.jpg", // Updated path
     labelText: "Tratamientos Capilares",
     htmlContent: `
     <h1>Tratamientos Capilares</h1>
@@ -70,11 +70,11 @@ const tratamientosData = [
     <li>Hidratación, nutrición, reparación y reconstrucción con productos de excelente calidad</li>
     <li>Alisados sin formol</li>
     </ul>
-    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank">Reservar Turno</a></button>
+    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank" rel="noopener noreferrer">Reservar Turno</a></button>
   `,
   },
   {
-    imageUrl: "./public/517a5d_31288bb1bd204b92b9a212c66da5b0ba~mv2.jpg",
+    imageUrl: "/assets/517a5d_31288bb1bd204b92b9a212c66da5b0ba~mv2.jpg", // Updated path
     labelText: "Maquillaje Profesional",
     htmlContent: `
     <h1>Maquillaje</h1>
@@ -85,12 +85,12 @@ const tratamientosData = [
     <li>Perfilado de cejas</li>
     <li>Permanente de pestañas</li>
     </ul>
-    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank">Reservar Turno</a></button>
+    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank" rel="noopener noreferrer">Reservar Turno</a></button>
   `,
   },
   {
     imageUrl:
-      "./public/f.elconfidencial.com_original_c68_39c_221_c6839c22103ccff94720248b14830748.jpg",
+      "/assets/f.elconfidencial.com_original_c68_39c_221_c6839c22103ccff94720248b14830748.jpg", // Updated path
     labelText: "Venta de Productos",
     htmlContent: `
     <h1>Venta de Productos</h1>
@@ -106,7 +106,7 @@ const tratamientosData = [
     <li>Cuidado del cabello</li>
     <b>¡Superior calidad a mejores precios!</b>
     </ul>
-    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank">Consultar Precios</a></button>
+    <button class="turno-button"><a href="https://wa.me/541141765033" target="_blank" rel="noopener noreferrer">Consultar Precios</a></button>
   `,
   },
 ];

@@ -2,6 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../styles.css";
 import { useNavigate } from "react-router-dom";
+
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -19,34 +20,30 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
+
 const sliderImageUrl = [
-  //First image url
   {
-    url: "../public/pexels-shvetsa-5069454.jpg",
+    url: "/assets/pexels-shvetsa-5069454.jpg", // Updated path
     p: "Tratamientos Faciales",
   },
   {
-    url: "../public/Radiofrecuencia-Corporal-en-Clinica-Premium-Marbella.jpg",
+    url: "/assets/Radiofrecuencia-Corporal-en-Clinica-Premium-Marbella.jpg", // Updated path
     p: "Tratamientos Corporales",
   },
-  //Second image url
   {
-    url: "../public/pexels-polina-tankilevitch-3738359.jpg",
+    url: "/assets/pexels-polina-tankilevitch-3738359.jpg", // Updated path
     p: "Tratamientos Capilares",
   },
-  //Third image url
   {
-    url: "../public/517a5d_31288bb1bd204b92b9a212c66da5b0ba~mv2.jpg",
+    url: "/assets/517a5d_31288bb1bd204b92b9a212c66da5b0ba~mv2.jpg", // Updated path
     p: "Maquillaje",
   },
-
-  //Fourth image url
-
   {
-    url: "../public/f.elconfidencial.com_original_c68_39c_221_c6839c22103ccff94720248b14830748.jpg",
+    url: "/assets/f.elconfidencial.com_original_c68_39c_221_c6839c22103ccff94720248b14830748.jpg", // Updated path
     p: "Venta de Productos",
   },
 ];
+
 const Slider = () => {
   const navigate = useNavigate();
 
@@ -66,14 +63,14 @@ const Slider = () => {
         partialVisible={false}
         dotListClass="custom-dot-list-style"
       >
-        {sliderImageUrl.map((imageUrl, index) => (
+        {sliderImageUrl.map((image, index) => (
           <div
             className="slider"
             key={index}
             onClick={() => handleClick(index)}
           >
-            <img src={imageUrl.url} alt={imageUrl.p} />
-            <p>{imageUrl.p}</p>
+            <img src={image.url} alt={image.p} />
+            <p>{image.p}</p>
           </div>
         ))}
       </Carousel>

@@ -205,7 +205,7 @@ nav ul a:hover {
 }
 
 .hero-image {
-  background-image: url("../public/kimia-zarifi-x4J_92kJBoY-unsplash.jpg");
+  background-image: url("public/assets/kimia-zarifi-x4J_92kJBoY-unsplash.jpg");
   background-size: cover;
   background-position: center;
   width: 70%;
@@ -267,7 +267,7 @@ nav ul a:hover {
 /* Styling for the picture */
 .contact-picture {
   flex: 1;
-  background-image: url("./public/pexels-shvetsa-5069423.jpg"); /* Replace with your image path */
+  background-image: url("public/assets/pexels-shvetsa-5069423.jpg"); /* Replace with your image path */
   background-size: cover;
   background-position: right center;
   height: 800px; /* Adjust height as needed */
@@ -361,7 +361,7 @@ nav ul a:hover {
 
 .contact-card {
   background-color: #fff;
-  background-image: url("src/assets/Firefly flowers with white background with pink accents 39722.jpg");
+  background-image: url("public/assets/Firefly flowers with white background with pink accents 39722.jpg");
   background-position: center;
   background-size: cover;
   align-self: flex-end;
