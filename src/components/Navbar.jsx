@@ -14,7 +14,7 @@ function Navbar({ onScrollToAboutUs }) {
         <Link className="logo-link" to="/">
           <img
             className="logo"
-            src="public\assets\a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png" // Ensure this path is correct
+            src="/assets/a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png" // Ensure this path is correct
             alt="Logo"
           />
         </Link>

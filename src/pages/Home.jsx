@@ -96,7 +96,7 @@ function Home() {
           <div className="contact-card">
             <img
               className="logo-contact"
-              src="public\assets\a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png" // Corrected path for logo
+              src="/assets/a637dffc-6c33-4e48-b4eb-b25913179ade 1111(1).png" // Corrected path for logo
               alt="Logo"
             />
             <div className="turno">
@@ -122,7 +122,7 @@ function Home() {
                   >
                     <img
                       className="social-images"
-                      src="public\assets\icons8-instagram-48.png" // Corrected path for Instagram icon
+                      src="/assets/icons8-instagram-48.png" // Corrected path for Instagram icon
                       alt="Instagram"
                     />
                   </a>
@@ -135,7 +135,7 @@ function Home() {
                   >
                     <img
                       className="social-images"
-                      src="public\assets\icons8-facebook-48.png" // Corrected path for Facebook icon
+                      src="/assets/icons8-facebook-48.png" // Corrected path for Facebook icon
                       alt="Facebook"
                     />
                   </a>
