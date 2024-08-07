@@ -12,7 +12,7 @@ const tratamientosData = [
     <p class="tratamientos-description">Realza tu belleza natural y rejuvenece tu rostro con tratamientos faciales. Ofrecemos tratamientos como:</p>
     <ul class="tratamientos-list">
     <li>Peelings Químicos y Mecánicos</li>
-    <li>Tratamientos Antiedad</li>
+    <li>Tratamientos Antiage</li>
     <li>Tratamientos para manchas y cicatrices</li>
     <li>Tratamientos para contorno de ojos:
     <br>
